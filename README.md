@@ -8,7 +8,7 @@ An API script for Stack Overflow for Teams that adds users to user groups based 
 
 ## Setup
 
-[Download](https://github.com/jklick-so/so4t_user_groups/archive/refs/heads/main.zip) and unpack the contents of this repository
+[Download](https://github.com/StackExchange/so4t_user_groups/archive/refs/heads/main.zip) and unpack the contents of this repository
 
 **Installing Dependencies**
 
@@ -20,21 +20,21 @@ An API script for Stack Overflow for Teams that adds users to user groups based 
 
 You'll need an API key and API token. 
 
-For Stack Overflow Enteprise, documentation for creating the key and token can be found within your instance, at this url: `https://[your_site]/api/docs/authentication`
+For Stack Overflow Enterprise, documentation for creating the key and token can be found within your instance at this url: `https://[your_site]/api/docs/authentication`
 
-Creating an access token for Stack Overflow Enterpise can sometimes be tricky for people who haven't done it before. Here are some (hopefully) straightforward instructions:
+Creating an access token for Stack Overflow Enterprise can sometimes be tricky for people who haven't done it before. Here are some (hopefully) straightforward instructions:
 * Go to the page where you created your API key. Take note of the "Client ID" associated with your API key.
 * Go to the following URL, replacing the base URL, the `client_id`, and base URL of the `redirect_uri` with your own: `https://YOUR.SO-ENTERPRISE.URL/oauth/dialog?client_id=111&redirect_uri=https://YOUR.SO-ENTERPRISE.URL/oauth/login_success`
 
-* You may be prompted to login to Stack Overflow Enterprise, if you're not already. Either way, you'll be redirected to a page that simply says "Authorizing Application"
+* You may be prompted to log in to Stack Overflow Enterprise if you're not already. Either way, you'll be redirected to a page that simply says "Authorizing Application"
 * In the URL of that page, you'll find your access token. Example: `https://YOUR.SO-ENTERPRISE.URL/oauth/login_success#access_token=YOUR_TOKEN`
 
 **Populate the CSV template**
 
-In the [Templates folder](https://github.com/jklick-so/so4t_user_groups/tree/main/Templates), you'll find a CSV file called `users.csv`. This is the file you'll use to indicate which users you wanted added to which user groups. 
+In the [Templates folder](https://github.com/StackExchange/so4t_user_groups/tree/main/Templates), you'll find a CSV file called `users.csv`. This is the file you'll use to indicate which users you want to be added to which user groups. 
 
 There are two columns in the CSV:
-* `user_email_or_id` - the unique identifier for the user that you want to assign to a user group. You can use either the user's email addrees or Stack Overflow for Teams user ID. If neither the email address nor the user ID exist in your Stack Overflow for Teams database, the script will skip that row and notify you via the terminal window.
+* `user_email_or_id` - the unique identifier for the user that you want to assign to a user group. You can use either the user's email address or Stack Overflow for Teams user ID. If neither the email address nor the user ID exist in your Stack Overflow for Teams database, the script will skip that row and notify you via the terminal window.
 * `group_name_or_id` - the unique identifier for the user group that you want to assign to the user. You can use either a group name or group ID. If you use a name that doesn't exist, the script will create a new user group with that name.
 
 Only a single user and group can be added per line. If you'd like to add multiple users to a single group, you'll need to create a separate line for each user. Likewise, if you'd like to add a single user to multiple groups, you'll need to create a separate line for each group.
@@ -46,11 +46,9 @@ Run the script using the following format, replacing the URL, token, and/or key 
 
 `python3 so4t_user_groups.py --url "https://SUBDOMAIN.stackenterprise.co" --key "YOUR_KEY" --token "YOUR_TOKEN" --csv "PATH_TO_CSV"`
 
-The script can take a minute or two to run, particularly as it gathers data via the API. As it runs, it will continue to update the terminal window with the tasks it's performing. When the script completes, it will return you to a command line prompt.
+The script can take a minute or two to run, particularly as it gathers data via the API. As it runs, it will update the terminal window with the tasks it performs. The script will return you to a command line prompt when it is complete.
 
 ## Support, security, and legal
-Disclaimer: the creator of this project works at Stack Overflow, but it is a labor of love that comes with no formal support from Stack Overflow. 
+If you encounter problems using the script, please open a support issue with Stack Overflow. You can also clone and change the script to suit your needs. It is provided as-is, with no warranty or guarantee of any kind.
 
-If you run into issues using the script, please [open an issue](https://github.com/jklick-so/so4t_user_groups/issues). You are also welcome to edit the script to suit your needs, steal the code, or do whatever you want with it. It is provided as-is, with no warranty or guarantee of any kind. If the creator wasn't so lazy, there would likely be an MIT license file included.
-
-All data is handled locally on the device from which the script is run. The script does not transmit data to other parties, such as Stack Overflow.
+All data is handled locally on the device from which the script is run. The script does not transmit data to other parties, such as Stack Overflow. All of the API calls performed are read only, so there is no risk of editing or adding content on your Stack Overflow for Teams instance.
