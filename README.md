@@ -49,6 +49,6 @@ Run the script using the following format, replacing the URL, token, and/or key 
 The script can take a minute or two to run, particularly as it gathers data via the API. As it runs, it will update the terminal window with the tasks it performs. The script will return you to a command line prompt when it is complete.
 
 ## Support, security, and legal
-If you encounter problems using the script, please open a support issue with Stack Overflow. You can also clone and change the script to suit your needs. It is provided as-is, with no warranty or guarantee of any kind.
+If you encounter problems using the script, please leave feedback in the Github Issues. You can also clone and change the script to suit your needs. It is provided as-is, with no warranty or guarantee of any kind.
 
 All data is handled locally on the device from which the script is run. The script does not transmit data to other parties, such as Stack Overflow. All of the API calls performed are read only, so there is no risk of editing or adding content on your Stack Overflow for Teams instance.
