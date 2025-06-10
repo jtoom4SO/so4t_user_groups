@@ -20,7 +20,11 @@ class V3Client(object):
             raise SystemExit
         else:
             self.token = args.token
-            self.headers = {'Authorization': f'Bearer {self.token}'}
+            #Updated User-Agent
+            self.headers = {
+                'Authorization': f'Bearer {self.token}',
+                'User-Agent': 'so4t_user_groups/1.0 (http://your-app-url.com; your-contact@email.com)'
+            }
 
         if "stackoverflowteams.com" in args.url: # Stack Overflow Business or Basic
             self.team_slug = args.url.split("https://stackoverflowteams.com/c/")[1]
